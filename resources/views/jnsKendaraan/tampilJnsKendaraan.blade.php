@@ -1,8 +1,7 @@
 <a href="{{route('jnsKendaraan.create')}}">
-    <input type="button" value="Tambah">
+    <input type="button" value="tambah">
 </a>
-
-<table border = '1'>
+<table border='1'>
     <tr>
         <td>No</td>
         <td>Nama Jenis Kendaraan</td>
@@ -13,8 +12,10 @@
     <tr>
         <td>{{$no++}}</td>
         <td>{{$row->nm_jns_kendaraan}}</td>
-        <td>Update | delete</td>
+        <td>
+            <a href="{{route('jnsKendaraan.edit',$row->id_jns_kendaraan)}}">update</a>
+            <a href="{{route('jnsKendaraan.delete',$row->id_jns_kendaraan)}}">delete</a>
+        </td>
     </tr>
     @endforeach
-
 </table>

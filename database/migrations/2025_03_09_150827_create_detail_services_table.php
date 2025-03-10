@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('detail_services', function (Blueprint $table) {
             $table->id();
+            $table->string('sparepart', 50);
+            $table->integer('harga');
             $table->timestamps();
         });
     }

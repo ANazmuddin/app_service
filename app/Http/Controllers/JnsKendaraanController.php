@@ -13,7 +13,6 @@ class JnsKendaraanController extends Controller
     public function index()
     {
         $data = jnsKendaraan::get();
-        // dd($data);
         return view('jnsKendaraan.tampilJnsKendaraan', compact('data'));
     }
 
@@ -31,20 +30,11 @@ class JnsKendaraanController extends Controller
      */
     public function store(Request $request)
     {
-        // insert ke sql
+        //untuk menyimpan
         $data = new jnsKendaraan();
         $data->nm_jns_kendaraan = $request->jns_kendaraan;
         $post = $data->save();
         return redirect('jnskendaraan');
-
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
     }
 
     /**
@@ -53,6 +43,8 @@ class JnsKendaraanController extends Controller
     public function edit(string $id)
     {
         //
+        $data = jnsKendaraan::where('id_jns_kendaraan', '=', $id)->get();
+        return view('jnsKendaraan.updateJnsKendaraan', compact('data', 'id'));
     }
 
     /**
@@ -61,6 +53,11 @@ class JnsKendaraanController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $data = jnsKendaraan::where('id_jns_kendaraan', '=', $id);
+        $data->update([
+            'nm_jns_kendaraan' => $request->jns_kendaraan,
+        ]);
+        return redirect('jnskendaraan');
     }
 
     /**
@@ -69,5 +66,8 @@ class JnsKendaraanController extends Controller
     public function destroy(string $id)
     {
         //
+        $data = jnsKendaraan::where('id_jns_kendaraan', '=', $id);
+        $data->delete();
+        return redirect('jnskendaraan');
     }
 }
