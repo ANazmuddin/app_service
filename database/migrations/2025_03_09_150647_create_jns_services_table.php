@@ -12,7 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('jns_services', function (Blueprint $table) {
-            $table->id();
+            $table->id(5);
+            $table->string('jns_service', 50);
+            $table->text('keterangan');
             $table->timestamps();
         });
     }
