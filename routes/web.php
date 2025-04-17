@@ -44,3 +44,11 @@ Route::post('/Kendaraan/add', [KendaraanController::class, 'store'])->name('Kend
 Route::get('/Kendaraan/edit/{id_kendaraan}', [KendaraanController::class, 'edit'])->name('Kendaraan.edit');
 Route::post('/Kendaraan/update/{id_kendaraan}', [KendaraanController::class, 'update'])->name('Kendaraan.update');
 Route::get('/Kendaraan/delete/{id_kendaraan}', [KendaraanController::class, 'destroy'])->name('Kendaraan.delete');
+
+//mekanik 
+route::get('/mekanik', [mekanikcontroller::class, 'index'])->name('mekanik.index');
+route::get('/mekanik/add', [mekanikcontroller::class, 'create'])->name('mekanik.create');
+route::post('/mekanik/add', [mekanikcontroller::class, 'store'])->name('mekanik.store');
+route::get('/mekanik/edit/{id}', [mekanikcontroller::class, 'edit'])->name('mekanik.edit');
+route::post('/mekanik/edit/{id}', [mekanikcontroller::class, 'update'])->name('mekanik.update');
+route::get('/mekanik/delete/{id}', [mekanikcontroller::class, 'destroy'])->name('mekanik.delete');
